@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Universal Repair AI</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo">UR</div><div><h1>Universal Repair AI</h1><p>iPhone control panel · Prototype 1.0</p></div></div>
+  <span class="status"><i></i> Local demo</span>
+</header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">DEVICE CARE, SIMPLIFIED</p>
+    <h2>Connect. Diagnose.<br><em>Repair. Verify.</em></h2>
+    <p class="muted">Use your iPhone to guide diagnostics and supported repair workflows for other devices.</p>
+    <div class="notice">This prototype does not directly access or repair connected devices. Real device control requires a compatible device-side agent or supported service.</div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><h3>1 · Choose device</h3><span>DEVICE</span></div>
+    <div class="device-grid">
+      <button class="device selected" data-device="Android"><b>🤖</b><span>Android</span></button>
+      <button class="device" data-device="Windows PC"><b>💻</b><span>Windows PC</span></button>
+      <button class="device" data-device="Linux"><b>🐧</b><span>Linux</span></button>
+      <button class="device" data-device="iPhone / iPad"><b>📱</b><span>iPhone / iPad</span></button>
+      <button class="device" data-device="Tablet"><b>▣</b><span>Tablet</span></button>
+      <button class="device" data-device="Other"><b>⚙️</b><span>Other</span></button>
+    </div>
+    <label for="connection">Connection method</label>
+    <select id="connection"><option>USB (through supported adapter)</option><option>Wi-Fi (same network)</option><option>Bluetooth (supported accessories only)</option><option>Not connected yet</option></select>
+    <label for="problem">Describe the problem</label>
+    <textarea id="problem" rows="3" placeholder="Example: Android phone stuck on logo after restart..."></textarea>
+    <button class="primary" id="scan">Start AI diagnosis <span>→</span></button>
+  </section>
+
+  <section class="panel" id="results" hidden>
+    <div class="section-head"><h3>2 · Diagnostic report</h3><span id="reportTag">READY</span></div>
+    <div id="report" class="report"></div>
+    <h4>Suggested repair workflow</h4>
+    <ol id="steps"></ol>
+    <div class="notice warning">Before any repair that changes firmware, partitions, or user data, make a backup and obtain explicit confirmation. This demo will not run commands or erase data.</div>
+    <button class="secondary" id="test">Run verification checklist</button>
+    <div id="verification" class="verification" hidden></div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><h3>3 · Connection capabilities</h3><span>iOS LIMITS</span></div>
+    <div class="cap"><b>USB</b><p>iPhone supports selected accessories, but Safari apps cannot act as universal ADB/fastboot or PC repair tools.</p></div>
+    <div class="cap"><b>Wi-Fi</b><p>Can communicate with a compatible local repair agent or web service when one is installed and reachable.</p></div>
+    <div class="cap"><b>Bluetooth</b><p>Safari on iPhone does not provide general Web Bluetooth access. Use supported iOS apps/accessories where available.</p></div>
+  </section>
+</main>
+<footer>Universal Repair AI · Prototype only · No device commands are executed</footer>
+<script src="app.js"></script>
+</body>
+</html>
